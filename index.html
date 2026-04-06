@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT_DAVE | Not That Kind of Physio</title>
+    <style>
+        :root { --main: #000000; --accent: #2ecc71; --bg: #ffffff; --light: #f9f9f9; }
+        body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; margin: 0; background: var(--bg); scroll-behavior: smooth; }
+        header, section, footer { padding: 40px 20px; max-width: 800px; margin: auto; }
+        .hero { background: var(--main); color: #fff; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 2.5rem; margin: 0; letter-spacing: 2px; }
+        .btn { background: var(--accent); color: #fff; padding: 15px 30px; text-decoration: none; display: inline-block; font-weight: bold; border-radius: 5px; margin-top: 20px; border: none; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: var(--light); padding: 20px; border-left: 5px solid var(--main); border-radius: 4px; }
+        .blog-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        h2 { border-bottom: 3px solid var(--main); display: inline-block; padding-bottom: 5px; text-transform: uppercase; }
+        .tag { font-size: 0.8rem; font-weight: bold; color: var(--accent); text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>PT_DAVE</h1> <p>SPORTS REHABILITATION | BACK PAIN RELIEF</p> <button onclick="scrollToContact()" class="btn">BOOK MY SESSION →</button> </section>
+
+    <section id="about">
+        <p class="tag">About Me</p> <h2>The Physio Who Keeps It Real</h2> <p>Hi, I'm <strong>Moses Kolapo Daniyan</strong> (PT Dave). I'm a licensed physiotherapist who believes in real diagnosis, real treatment, and real results.</p> <p>I started <em>NoT_tHaT_kinD_OF_pHySiO</em> because I was tired of seeing patients get generic treatment plans that didn't address their <strong>actual</strong> problem.</p> <ul>
+            <li>Licensed & Registered Physiotherapist</li> <li>Specialist In Sports & Musculoskeletal Rehab</li> <li>500+ Patients Successfully Treated</li> </ul>
+    </section>
+
+    <section id="services" style="background: var(--light);">
+        <h2>What I Do</h2> <div class="grid">
+            <div class="card">
+                <span class="tag">Athletes</span> <h3>Sports Rehabilitation</h3> <p>From ankle sprains to ACL recovery, get back to peak performance.</p> </div>
+            <div class="card">
+                <span class="tag">Office Workers</span> <h3>Back & Neck Pain</h3> <p>Evidence-based treatment for chronic pain and sciatica.</p> </div>
+            <div class="card">
+                <span class="tag">Remote</span> <h3>Telehealth</h3> <p>Expert physio advice via video call worldwide.</p> </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2> <p>Email: <strong>daniyanmoses.k@gmail.com</strong></p> <form id="contactForm">
+            <input type="text" id="name" placeholder="FULL NAME" required> <input type="email" id="email" placeholder="EMAIL" required> <textarea id="message" placeholder="TELL ME ABOUT YOUR CONDITION" rows="4"></textarea> <button type="submit" class="btn" style="width:100%;">BOOK MY SESSION →</button> </form>
+    </section>
+
+    <footer style="text-align: center; font-size: 0.8rem; color: #888;">
+        <p>&copy; 2026 Moses Kolapo Daniyan - NoT_tHaT_kInD_oF_pHySiO</p> </footer>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for reaching out! PT Dave will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
