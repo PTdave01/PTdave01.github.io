@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT_Dave — Licensed Physiotherapist</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00C96B;
+    --dark: #111111;
+    --gray: #888888;
+    --light-gray: #AAAAAA;
+    --bg: #F5F5F0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(245,245,240,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--dark);
+  }
+
+  .logo-icon {
+    width: 28px; height: 28px;
+    position: relative;
+  }
+
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2.5px solid #e040a0;
+    border-radius: 50%;
+    top: 0; left: 4px;
+  }
+
+  .logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px; height: 10px;
+    background: var(--dark);
+    border-radius: 50%;
+    bottom: 2px; left: 0;
+  }
+
+  .logo span { color: var(--green); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav ul a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray);
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--dark); }
+
+  .nav-cta {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+    background: var(--dark);
+    padding: 10px 20px;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--green); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 40px 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-ticker {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 40px;
+    overflow: hidden;
+    opacity: 0.05;
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 40px;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-inner span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18vw;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .hero-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 11rem);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+  }
+
+  .hero-headline .accent { color: var(--green); }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: var(--light-gray);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+    background: var(--green);
+    padding: 18px 32px;
+    transition: all 0.2s;
+  }
+
+  .hero-cta:hover { background: var(--white); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--green));
+    animation: scrollLine 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* TICKER BAR */
+  .ticker-bar {
+    background: var(--green);
+    padding: 12px 0;
+    overflow: hidden;
+  }
+
+  .ticker-bar-inner {
+    display: flex;
+    gap: 0;
+    animation: ticker 25s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-bar-inner span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark);
+    padding: 0 32px;
+  }
+
+  .ticker-bar-inner .dot {
+    color: var(--dark);
+    opacity: 0.4;
+    padding: 0;
+  }
+
+  /* SECTIONS SHARED */
+  section { padding: 100px 40px; }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 60px;
+  }
+
+  .section-title .gray { color: var(--gray); }
+  .section-title .green { color: var(--green); }
+
+  /* SERVICES */
+  #services {
+    background: var(--white);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--bg);
+    padding: 40px 32px;
+    transition: background 0.25s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    background: var(--dark);
+  }
+
+  .service-card:hover .service-title,
+  .service-card:hover .service-desc,
+  .service-card:hover .service-tag { color: var(--white); }
+
+  .service-card:hover .service-tag { color: var(--green); }
+
+  .service-emoji {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+    transition: color 0.25s;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    transition: color 0.25s;
+  }
+
+  .service-tag {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    transition: color 0.25s;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  #about .section-title { color: var(--white); margin-bottom: 32px; }
+
+  .about-text {
+    font-size: 0.95rem;
+    color: var(--light-gray);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .about-text strong { color: var(--white); }
+
+  .about-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--light-gray);
+  }
+
+  .about-list li::before {
+    content: '▸';
+    color: var(--green);
+    font-size: 0.8rem;
+  }
+
+  .about-cta {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+    background: var(--green);
+    padding: 14px 28px;
+    transition: background 0.2s;
+  }
+
+  .about-cta:hover { background: var(--white); }
+
+  .about-card {
+    background: #1a1a1a;
+    padding: 50px 40px;
+    border: 1px solid #2a2a2a;
+    text-align: center;
+  }
+
+  .about-avatar {
+    width: 80px; height: 80px;
+    background: var(--green);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .about-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .about-role {
+    font-size: 0.8rem;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* BLOG */
+  #blog {
+    background: var(--bg);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    padding: 36px 30px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .blog-card:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+  }
+
+  .blog-cat {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+
+  .blog-icon { font-size: 1.8rem; margin-bottom: 16px; display: block; }
+
+  .blog-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .blog-desc {
+    font-size: 0.83rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .blog-link {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .blog-link:hover { color: var(--green); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info .section-title { margin-bottom: 24px; }
+
+  .contact-sub {
+    font-size: 0.93rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.85rem;
+    color: var(--dark);
+  }
+
+  .contact-item .icon { font-size: 1.1rem; }
+
+  .contact-item a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--dark);
+    background: var(--bg);
+    border: 1.5px solid transparent;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--green);
+  }
+
+  .form-textarea { min-height: 120px; resize: vertical; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-submit {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--dark);
+    border: none;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--green); color: var(--dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--green); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--gray);
+    text-align: center;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  .footer-nav a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    nav ul { display: none; }
+    section { padding: 70px 20px; }
+    #hero { padding: 100px 20px 50px; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+    #about { grid-template-columns: 1fr; gap: 40px; }
+    #contact { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 40px 20px; }
+    .footer-nav { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">
+    <div class="logo-icon"></div>
+    PT_<span>DAVE</span>
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book Session →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span>PT_DAVE</span><span>PT_DAVE</span><span>PT_DAVE</span><span>PT_DAVE</span>
+      <span>PT_DAVE</span><span>PT_DAVE</span><span>PT_DAVE</span><span>PT_DAVE</span>
+    </div>
+  </div>
+  <div class="hero-label">✦ Sports Rehabilitation ✦ Back Pain Relief ✦</div>
+  <h1 class="hero-headline">
+    Move<br>
+    <span class="accent">Better.</span><br>
+    Live Free.
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-sub">Real diagnosis. Real treatment. Real results. Licensed physiotherapist helping athletes and everyday people reclaim their bodies.</p>
+    <a href="#contact" class="hero-cta">Book My Session →</a>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-bar-inner">
+    <span>Sports Rehab</span><span class="dot">✦</span>
+    <span>Back Pain Relief</span><span class="dot">✦</span>
+    <span>Manual Therapy</span><span class="dot">✦</span>
+    <span>Post-Surgery Recovery</span><span class="dot">✦</span>
+    <span>Telehealth Worldwide</span><span class="dot">✦</span>
+    <span>500+ Patients Treated</span><span class="dot">✦</span>
+    <span>Sports Rehab</span><span class="dot">✦</span>
+    <span>Back Pain Relief</span><span class="dot">✦</span>
+    <span>Manual Therapy</span><span class="dot">✦</span>
+    <span>Post-Surgery Recovery</span><span class="dot">✦</span>
+    <span>Telehealth Worldwide</span><span class="dot">✦</span>
+    <span>500+ Patients Treated</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What I Do</div>
+  <h2 class="section-title">Services Built<br><span class="gray">Around</span> <span class="green">You</span></h2>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <span class="service-emoji">🏃</span>
+      <div class="service-title">Sports Rehabilitation</div>
+      <p class="service-desc">From ankle sprains to ACL recovery, get back to peak performance with sport-specific rehab programs tailored to your goals.</p>
+      <div class="service-tag">→ Athletes & Active Individuals</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🦴</span>
+      <div class="service-title">Back & Neck Pain</div>
+      <p class="service-desc">Evidence-based treatment for chronic back pain, disc issues, sciatica, and cervical spine conditions. Fix the root cause, not just the symptom.</p>
+      <div class="service-tag">→ Office Workers & All Ages</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🔧</span>
+      <div class="service-title">Manual Therapy</div>
+      <p class="service-desc">Hands-on joint mobilisation, soft tissue manipulation, and myofascial release to restore movement and reduce pain fast.</p>
+      <div class="service-tag">→ Joint & Muscle Issues</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🏥</span>
+      <div class="service-title">Post-Surgery Recovery</div>
+      <p class="service-desc">Structured rehabilitation following orthopaedic surgery — knee replacements, rotator cuff repair, hip replacements, and more.</p>
+      <div class="service-tag">→ Post-Op Patients</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🧍</span>
+      <div class="service-title">Posture & Movement</div>
+      <p class="service-desc">Identify and correct postural dysfunctions and movement imbalances before they become chronic pain and long-term injuries.</p>
+      <div class="service-tag">→ Prevention & Wellness</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">💻</span>
+      <div class="service-title">Telehealth Consultations</div>
+      <p class="service-desc">Get expert physio advice from anywhere in the world. Online assessment, exercise prescription, and follow-ups via video call.</p>
+      <div class="service-tag">→ Remote & Flexible</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🤰</span>
+      <div class="service-title">Women's Health Physio</div>
+      <p class="service-desc">Pre and postnatal physiotherapy, pelvic floor rehabilitation, and management of pregnancy-related musculoskeletal conditions.</p>
+      <div class="service-tag">→ Women's Wellness</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">👴</span>
+      <div class="service-title">Geriatric Physiotherapy</div>
+      <p class="service-desc">Helping older adults maintain independence, improve balance, prevent falls, and manage age-related conditions with dignity.</p>
+      <div class="service-tag">→ Elderly Care</div>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-emoji">🧠</span>
+      <div class="service-title">Neurological Rehab</div>
+      <p class="service-desc">Rehabilitation for stroke, Parkinson's disease, multiple sclerosis, and other neurological conditions to maximise function and quality of life.</p>
+      <div class="service-tag">→ Neurological Conditions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div>
+    <div class="section-label">About</div>
+    <h2 class="section-title">The Physio Who<br><span style="color:var(--green)">Keeps It Real</span></h2>
+    <p class="about-text">
+      Hi, I'm <strong>Moses Kolapo Daniyan</strong> — but you can call me <strong>PT Dave</strong>. I'm a licensed physiotherapist who believes in getting straight to the point: <strong>real diagnosis, real treatment, real results.</strong>
+    </p>
+    <p class="about-text">
+      I started <strong>NoT_tHaT_kInD_oF_pHySiO</strong> because I was tired of seeing patients get generic treatment plans that didn't address their actual problem. Every body is different. Every pain has a story.
+    </p>
+    <ul class="about-list">
+      <li>Licensed & Registered Physiotherapist</li>
+      <li>Specialist in Sports & Musculoskeletal Rehab</li>
+      <li>Evidence-Based, Patient-Centred Approach</li>
+      <li>Online & In-Person Consultations Available</li>
+      <li>500+ Patients Successfully Treated</li>
+    </ul>
+    <a href="#contact" class="about-cta">Work With Me →</a>
+  </div>
+  <div>
+    <div class="about-card">
+      <div class="about-avatar">💪</div>
+      <div class="about-name">PT_Dave</div>
+      <div class="about-role">Licensed Physiotherapist</div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Patients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Years Exp.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Services</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">🌍</div>
+          <div class="stat-label">Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-label">Knowledge Base</div>
+  <h2 class="section-title">Tips & <span class="green">Insights</span></h2>
+  <div class="blog-grid">
+    <div class="blog-card fade-up">
+      <span class="blog-icon">🔥</span>
+      <div class="blog-cat">Back Pain</div>
+      <div class="blog-title">3 Signs Your Back Pain Is Posture-Related (And How to Fix It)</div>
+      <p class="blog-desc">Most back pain isn't structural — it's postural. Here's how to tell the difference and what to do about it.</p>
+      <a href="#" class="blog-link">Read More →</a>
+    </div>
+    <div class="blog-card fade-up">
+      <span class="blog-icon">⚡</span>
+      <div class="blog-cat">Sports Rehab</div>
+      <div class="blog-title">Why Rest Is the Worst Thing You Can Do After a Muscle Injury</div>
+      <p class="blog-desc">The old RICE method is outdated. Here's what modern sports physiotherapy actually recommends for faster recovery.</p>
+      <a href="#" class="blog-link">Read More →</a>
+    </div>
+    <div class="blog-card fade-up">
+      <span class="blog-icon">🧍</span>
+      <div class="blog-cat">Prevention</div>
+      <div class="blog-title">The 5-Minute Morning Routine That Prevents 80% of Common Injuries</div>
+      <p class="blog-desc">Five simple movement checks every morning that will dramatically reduce your injury risk. No equipment needed.</p>
+      <a href="#" class="blog-link">Read More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Ready to<br><span class="green">Move Better?</span></h2>
+    <p class="contact-sub">Book a session or send a message. Whether you're dealing with chronic pain, recovering from an injury, or just want to move without limits — I'm here to help.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <span class="icon">📧</span>
+        <span>Email: <a href="mailto:daniyanmoses.k@gmail.com">daniyanmoses.k@gmail.com</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🌍</span>
+        <span>Available for in-person & telehealth worldwide</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📱</span>
+        <span>Follow <a href="https://twitter.com/PT_Dave" target="_blank">@PT_Dave</a> on Twitter/X for daily tips</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone</label>
+        <input type="tel" class="form-input" placeholder="+1 234 567 890">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Needed</label>
+        <select class="form-select">
+          <option value="">Select a service...</option>
+          <option>Sports Rehabilitation</option>
+          <option>Back & Neck Pain</option>
+          <option>Manual Therapy</option>
+          <option>Post-Surgery Recovery</option>
+          <option>Posture & Movement</option>
+          <option>Telehealth Consultation</option>
+          <option>Women's Health Physio</option>
+          <option>Geriatric Physiotherapy</option>
+          <option>Neurological Rehab</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tell Me About Your Condition</label>
+        <textarea class="form-textarea" placeholder="Describe your pain, injury, or what you need help with..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PT_<span>DAVE</span></div>
+  <div class="footer-copy">© 2026 Moses Kolapo Daniyan — NoT_tHaT_kInD_oF_pHySiO</div>
+  <nav class="footer-nav">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = 'var(--green)';
+    btn.style.color = 'var(--dark)';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
